@@ -1,9 +1,11 @@
 import React from 'react';
-import { AppRegistry, StyleSheet, ActivityIndicator, ListView, Text, View, Alert,Image, Platform, Button, TouchableHighlight, Modal} from 'react-native';
+import { AppRegistry, StyleSheet, ActivityIndicator, ListView, Text, View, Alert,Image, Platform, Button, TouchableHighlight} from 'react-native';
+
+url = '<server ip>'
 
 export default class screen2 extends React.Component {
     static navigationOptions = {
-        title: 'Gala',
+        title: 'Drinks',
     };
     constructor(props) {
       super(props);
@@ -17,7 +19,7 @@ export default class screen2 extends React.Component {
     }
 
     componentDidMount() {
-      return fetch('http://192.168.2.11:5000/ListProducts',{method:'POST'})
+      return fetch(url+'/ListProducts',{method:'POST'})
       .then((response) => response.json())
       .then((responseJson) => {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -71,23 +73,14 @@ export default class screen2 extends React.Component {
                   <Text style={{ fontSize: 14,justifyContent: 'flex-start',}}>{rowData.pdescription}</Text>
                   </View>
                 <View style={{flex:1, backgroundColor:'#ffa800',borderRadius:5}}>
-                <TouchableHighlight onPress={() => {
-            this.setModalVisible(true);
-          }}  style={{ justifyContent: 'flex-end'}}>
-                    <Text style={{fontSize: 14, height:25, maxWidth:30, textAlignVertical:'center'}}>Add</Text>
+                <TouchableHighlight onPress={this.GetItem.bind(this, rowData.pdescription,rowData.pquantity,rowData.pcost)} style={{ justifyContent: 'flex-end'}}>
+                    <Text style={{fontSize: 14, height:25, maxWidth:20, textAlignVertical:'center'}}>Add</Text>
                 </TouchableHighlight>
                   {/* <Button containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}disabledContainerStyle={{backgroundColor: 'grey'}} style={{fontSize: 20, color: 'green'}} onPress={this.GetItem.bind(this, rowData.pdescription,rowData.pquantity,rowData.pcost)} title="Add"/>  */}
                   </View>
                 </View>
                 
               </View>
-
-              <Modal
-                  animated={true}
-                  transparent={true}
-                  visible={!!this.state.selectedBook}>
-                  <Text>{this.state.selectedBook.title}</Text>
-              </Modal>
             </View>
 
         }

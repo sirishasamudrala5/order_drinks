@@ -1,9 +1,11 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, ActivityIndicator, ListView, Text, View, Alert,Image, Platform, Button, TouchableHighlight} from 'react-native';
 
+url = '<server ip>'
+
 export default class screen1 extends React.Component {
     static navigationOptions = {
-        title: 'Gala',
+        title: 'Drinks',
     };
     constructor(props) {
       super(props);
@@ -17,7 +19,7 @@ export default class screen1 extends React.Component {
     }
 
     componentDidMount() {
-      return fetch('http://192.168.2.11:5000/ListProducts',{method:'POST'})
+      return fetch(url+'/ListProducts',{method:'POST'})
       .then((response) => response.json())
       .then((responseJson) => {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});

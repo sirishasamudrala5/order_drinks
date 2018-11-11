@@ -20,5 +20,5 @@ class ListProducts(Resource):
 api.add_resource(ListProducts, '/ListProducts')
 
 if __name__ == '__main__':
-    app.run(host='192.168.2.11',debug=True)
+    app.run(host='<server ip>',debug=True)
 

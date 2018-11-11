@@ -5,7 +5,7 @@ _connection = None
 def get_connection():
     global _connection
     if not _connection:
-        _connection = pymysql.connect(host='<db-host>',port=3306,user='<db-user>', password='<password>',db='<db-name>', charset='utf8')
+        _connection = pymysql.connect(host='localhost',port=3306,user='root', password='chikkIbuddI57',db='drinks', charset='utf8')
     cursor = _connection.cursor()
     return cursor
 

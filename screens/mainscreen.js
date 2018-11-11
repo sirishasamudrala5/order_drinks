@@ -3,14 +3,14 @@ import { StyleSheet, Text, View ,Button,TouchableOpacity,} from 'react-native';
 
 export default class MainScreen extends React.Component {
     static navigationOptions = {
-        title: 'Gala',
+        title: 'Drinks',
     };
   render() {
     const { navigate } = this.props.navigation
     return (
 
       <View style={styles.container}>
-        <Text style={styles.titleText}>Gala</Text>
+        <Text style={styles.titleText}>Drinks</Text>
         <Text>Party at Home!</Text>
         <TouchableOpacity onPress={() => navigate('Screen1')}>
             <Text>Lets Go to page 1!</Text>
