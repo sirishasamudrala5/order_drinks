@@ -1,2 +1,2 @@
-# order_drinks
-Mobile application (E-Commerce - order drinks online) - react-native, python, mysql
+# order_products
+Mobile application (E-Commerce - order products online) - react-native, python, mysql
