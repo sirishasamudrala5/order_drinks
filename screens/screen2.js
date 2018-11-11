@@ -5,7 +5,7 @@ url = '<server ip>'
 
 export default class screen2 extends React.Component {
     static navigationOptions = {
-        title: 'Drinks',
+        title: 'Products',
     };
     constructor(props) {
       super(props);
